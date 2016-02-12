@@ -1,0 +1,95 @@
+
+
+
+
+.-. .-')                    .-') _   ('-.    .-')    
+\  ( OO )                  ( OO ) )_(  OO)  ( OO ).  
+ ;-----.\  .-'),-----. ,--./ ,--,'(,------.(_)---\_) 
+ | .-.   \ ( OO'  .-.  '|   \ |  |\ |  .---'/    _ |  
+ | '-' /_)/   |  | |  ||    \|  | )|  |    \  :` `.  
+ | .-. `. \_) |  |\|  ||  .     |/(|  '--.  '..`''.) 
+ | |  \  |  \ |  | |  ||  |\    |  |  .--' .-._)   \ 
+ | '--'  /   `'  '-'  '|  | \   |  |  `---.\       / 
+ `------'      `-----' `--'  `--'  `------' `-----'  
+
+ */
+$bones-column-count: 	12;
+$bones-max-width: 		1080px;
+$bones-column-padding:  16px;
+$bones-medium-break: 	768px;
+$bones-large-break:		1024px;
+
+*[data-wrapper], *[data-row], *[data-column] {
+	box-sizing: border-box;
+	background: rgba(0,0,0,0.1);
+}
+
+*[data-wrapper] {
+	width: 			100%;
+	overflow: 		hidden;
+}
+
+*[data-row] {
+	margin: 		0 auto;
+	max-width: 		$bones-max-width + (2*$bones-column-padding);
+	clear: 			both;
+
+	&:after {  
+		content: 	" "; /* Older browser do not support empty content */
+		visibility: hidden;
+		display:	block;
+		height: 	0;
+		clear:		both;
+	}
+}
+
+*[data-row][data-bones *="no-padding"] {
+	max-width: 		$bones-max-width;
+}
+
+*[data-column] {
+	float: 			left;
+	padding: 		$bones-column-padding;
+}
+
+/* Columns	*/
+
+*[data-column ^="hide-"], *[data-column="hide"] {
+	display: 		none;
+}
+
+@for $bones-column from 1 through $bones-column-count {
+	
+	// Small devices and up
+	*[data-column ^="#{$bones-column}-"], *[data-column="#{$bones-column}"] {
+		width:		$bones-column/$bones-column-count * 100%;
+	}
+}
+
+// Medium devices and up
+@media all and (min-width: $bones-medium-break) {
+	
+	*[data-column $="-hide"] {
+		display: 	none;
+	}
+
+	@for $bones-column from 1 through $bones-column-count {
+		*[data-column $="-#{$bones-column}"] {
+			width: 	$bones-column/$bones-column-count * 100%;
+		}
+	}
+}
+
+// Medium devices only 
+@media all and (min-width: $bones-medium-break) and (max-width: $bones-large-break) {
+	
+	*[data-column *="-hide-"] {
+		display: 	none;
+	}
+
+	@for $bones-column from 1 through $bones-column-count {
+		*[data-column *="-#{$bones-column}-"] {
+			width: 	$bones-column/$bones-column-count * 100%;
+		}
+	}
+}
