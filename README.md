@@ -9,7 +9,7 @@ Bones proscribes as little as possible, defining only **wrappers**, **rows** and
 
 ### Basic Grid
 
-Markup : 
+Example of a basic Bones implementation : 
 	
 	<div data-wrapper>
 		<div data-row>
