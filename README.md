@@ -9,7 +9,7 @@ Bones proscribes as little as possible, defining only **wrappers**, **rows** and
 
 ### Basic Grid
 
-Markup : ```html
+Markup : 
 	
 	<div data-wrapper>
 		<div data-row>
@@ -18,8 +18,6 @@ Markup : ```html
 			</div><!-- data-column -->
 		</div><!-- data-row -->
 	</div><!-- data-wrapper -->
-
-```
 
 ## Options
 
